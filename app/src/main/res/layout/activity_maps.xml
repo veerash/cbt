@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wp_light_gray">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/line_view_dummy_one"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <com.android.citybustickets.customviews.textviews.Lato_Reg_TextView
+                android:id="@+id/pickup_points"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Stops near Pickup"
+                android:textColor="@color/wp_dark_gray"
+                android:textSize="10sp" />
+
+            <CheckBox
+                android:id="@+id/arrow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:button="@drawable/arrow_rb" />
+
+            <com.android.citybustickets.customviews.textviews.Lato_Reg_TextView
+                android:id="@+id/dropping_points"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Stops near Destination"
+                android:textColor="@color/wp_dark_gray"
+                android:textSize="10sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_view_dummy_two"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/points_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/points_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2sp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/src_bg"
+                        android:button="@null"
+                        android:checked="true"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:minLines="3"
+                        android:padding="5sp"
+                        android:text="Mehadipatnam \nMarket Yard Stop \nFare: 20/-"
+                        android:textColor="@color/wp_dark_gray"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/line_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black" />
+
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/line_view_dummy_three"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2sp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dest_bg"
+                        android:button="@null"
+                        android:checked="true"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:minLines="3"
+                        android:padding="5sp"
+                        android:text="Gachibowli \nChandana Bros Stop \nFare: 20/-"
+                        android:textColor="@color/wp_dark_gray"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/line_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <com.android.citybustickets.customviews.buttons.LatoRegButton
+                android:id="@+id/next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10sp"
+                android:background="@android:color/background_dark"
+                android:text="Next"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:map="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools" -->
+</RelativeLayout>

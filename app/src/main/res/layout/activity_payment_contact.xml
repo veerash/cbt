@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="none"
+    tools:context="com.android.citybustickets.PaymentContactActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_payment_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+            android:id="@+id/contact_details_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="3"
+            android:text="Contact Details"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <com.android.citybustickets.customviews.edittexts.Lato_Reg_EditText
+            android:id="@+id/contact_details_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/nvite_edit_text_bg"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:hint="Name"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingBottom="3sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <com.android.citybustickets.customviews.edittexts.Lato_Reg_EditText
+            android:id="@+id/contact_details_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/nvite_edit_text_bg"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingBottom="3sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <com.android.citybustickets.customviews.edittexts.Lato_Reg_EditText
+            android:id="@+id/contact_details_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/nvite_edit_text_bg"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:paddingBottom="3sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.android.citybustickets.customviews.edittexts.Lato_Reg_EditText
+                android:id="@+id/contact_details_age"
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/nvite_edit_text_bg"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:hint="Age"
+                android:inputType="number"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:paddingBottom="3sp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+                android:id="@+id/contact_details_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:maxLines="3"
+                android:text="Gender: "
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                    android:id="@+id/contact_details_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:minLines="3"
+                    android:text="M" />
+
+                <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                    android:id="@+id/contact_details_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:checked="true"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:minLines="3"
+                    android:text="F" />
+
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+            android:id="@+id/payment_options"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="3"
+            android:text="Payment Options"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginTop="5sp"
+            android:orientation="vertical">
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_net_banking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Net banking" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_credit_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Credit Card" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_debit_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Debit Card" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_paytm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paytm Wallet" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_mobikwik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobikwik Wallet" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_payumoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payu Money" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_ola"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ola Money" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_airtel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Airtel Money" />
+
+            <com.android.citybustickets.customviews.radiobuttons.LatoRegularRadioButton
+                android:id="@+id/payment_options_jio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JIO Money" />
+
+
+        </RadioGroup>
+        <com.android.citybustickets.customviews.buttons.LatoRegButton
+            android:id="@+id/pay_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10sp"
+            android:background="@android:color/background_dark"
+            android:text="Pay"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

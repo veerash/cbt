@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/search_background_item"
+    android:orientation="horizontal"
+    android:padding="20sp" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/time_icon" />
+
+    <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+        android:id="@+id/selected_place_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:gravity="left"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="20sp">
+
+    <ImageView
+        android:id="@+id/alert_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/alert_icon" />
+
+    <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+        android:id="@+id/title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20sp"
+        android:text="Location Unavailable"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.android.citybustickets.customviews.textviews.Lato_Reg_TextView
+        android:id="@+id/desc_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10sp"
+        android:text="We are unable to locate you"
+        android:textColor="@color/wp_dark_gray"
+        android:textSize="14sp" />
+
+
+    <com.android.citybustickets.customviews.buttons.LatoRegButton
+        android:id="@+id/open_settings_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:background="@drawable/open_settings_bg"
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="Open Settings"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

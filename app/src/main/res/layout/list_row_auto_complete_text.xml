@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.citybustickets.customviews.textviews.Lato_Reg_TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/search_background_item"
+    android:drawableLeft="@drawable/location_icon"
+    android:drawablePadding="10sp"
+    android:gravity="left"
+    android:padding="20sp"
+    android:textColor="@android:color/darker_gray"
+    android:textSize="14sp" />

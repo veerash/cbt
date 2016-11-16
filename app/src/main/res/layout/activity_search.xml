@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wp_light_gray"
+    android:orientation="vertical"
+    android:padding="10sp"
+    tools:context="com.android.citybustickets.SearchActivity" >
+
+    <com.android.citybustickets.customviews.edittexts.ClearableEditText
+        android:id="@+id/search_edittext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/search_et_background_item"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="10sp"
+        android:drawableRight="@drawable/close_search_icon"
+        android:hint="Enter Your Location"
+        android:padding="10sp" >
+
+        <requestFocus />
+    </com.android.citybustickets.customviews.edittexts.ClearableEditText>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/previous_locations_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/my_location_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <com.android.citybustickets.customviews.edittexts.LatoSemiBoldEditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20sp"
+                        android:gravity="left"
+                        android:text="My Location"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <com.android.citybustickets.customviews.textviews.Lato_Reg_TextView
+                        android:id="@+id/search_intro"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20sp"
+                        android:background="@drawable/search_background_item"
+                        android:drawableLeft="@drawable/map_glow"
+                        android:drawablePadding="20sp"
+                        android:gravity="left"
+                        android:padding="20sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="20sp"
+                android:gravity="left"
+                android:text="Previous Locations"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+            <ListView
+                android:id="@+id/selected_address_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/black"
+                android:dividerHeight="1dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_locations_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <com.android.citybustickets.customviews.textviews.LatoSemiBoldTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="20sp"
+                android:gravity="left"
+                android:text="Search Results"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+            <ListView
+                android:id="@+id/places_search_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/black"
+                android:dividerHeight="1dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" >
+            </ListView>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/selected_location_progressbar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>
