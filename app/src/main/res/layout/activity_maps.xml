@@ -46,8 +46,8 @@
                 android:id="@+id/arrow_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:button="@drawable/arrow_rb" />
+                android:button="@drawable/arrow_rb"
+                android:checked="true" />
 
             <com.android.citybustickets.customviews.textviews.Lato_Reg_TextView
                 android:id="@+id/dropping_points"
@@ -90,6 +90,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/pickup_one"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/src_bg"
@@ -125,6 +126,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/dropping_one"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/dest_bg"
@@ -154,10 +156,24 @@
                 android:layout_alignParentBottom="true"
                 android:layout_margin="10sp"
                 android:background="@android:color/background_dark"
+                android:drawableRight="@drawable/right_arrow_button"
+                android:paddingRight="20sp"
                 android:text="Next"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="19dp"
+        app:srcCompat="@drawable/back_arrow" />
 
 
     <!--xmlns:android="http://schemas.android.com/apk/res/android"-->

@@ -54,7 +54,6 @@ public class GetAddressFromLocation {
 public String GOOGLE_PLACES_API_URL = "http://maps.googleapis.com/maps/api/geocode/json?";
 	// google maps sensor
 	public String GOOGLE_API_SENSOR = "&sensor=false";
-
 	/**
 	 * @author Vinil.S
 	 * @param latlng
@@ -62,6 +61,60 @@ public String GOOGLE_PLACES_API_URL = "http://maps.googleapis.com/maps/api/geoco
 	 */
 	String address = null;
 	StringTokenizer mStringTokenizer;
+
+	public String getAreaAddressFromLatLng(final Context ctx,
+											   LatLng latlng) {
+		// previously we were using the google places api to fetch places as it
+		// is giving some api error we have been using the geocoder
+		final String ss = GOOGLE_PLACES_API_URL + "latlng=" + latlng.latitude
+				+ "," + latlng.longitude + GOOGLE_API_SENSOR;
+
+		final ArrayList<String> addresses = new ArrayList<>();
+		try {
+			if (new InternetConnectivity(ctx).isNetworkAvailable()) {
+				try {
+					String response = readWebService(ss);
+					JSONObject json = null;
+					json = new JSONObject(response);
+					JSONArray jarr = json
+							.getJSONArray("results");
+					json = jarr.getJSONObject(0);
+					String adress = json
+							.getString("formatted_address");
+					mStringTokenizer = new StringTokenizer(
+							adress, ",");
+					while (mStringTokenizer.hasMoreElements()) {
+						addresses.add(""
+								+ mStringTokenizer
+								.nextElement());
+					}
+					if (address == null) {
+						address = addresses.get(1).trim()+"Bus Stop";
+//						address = address
+//								+ ","
+//								+ addresses.get(1).trim();
+//						address = address
+//								+ ","
+//								+ addresses.get(2).trim();
+					}
+				} catch (JSONException e) {
+
+				}
+
+			}
+
+
+		} catch (Exception e) {
+
+		} finally {
+		}
+		return address;
+	}
+	/**
+	 * @author Vinil.S
+	 * @param latlng
+	 * @return
+	 */
 
 	public String getLocationAddressFromLatLng(final Context ctx,
 											   LatLng latlng) {

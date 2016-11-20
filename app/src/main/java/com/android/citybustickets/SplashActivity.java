@@ -64,7 +64,7 @@ public class SplashActivity extends Activity implements
 //                new Handler().postDelayed(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        myImage.setVisibility(View.VISIBLE);
+                        myImage.setVisibility(View.VISIBLE);
                         setInternetAlertDialog();
                         setLocationAlertDialog();
                         handleInternet();

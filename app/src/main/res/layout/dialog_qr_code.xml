@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/rq_code"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/account_icon" />
+
+    <com.android.citybustickets.customviews.buttons.LatoRegButton
+        android:id="@+id/close_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rq_code"
+        android:layout_marginTop="20sp"
+        android:background="@android:color/holo_green_light"
+        android:padding="10sp"
+        android:text="Close"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"></com.android.citybustickets.customviews.buttons.LatoRegButton>
+</RelativeLayout>

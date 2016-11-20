@@ -16,9 +16,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.android.citybustickets.services.GetAddressFromLocation;
 import com.android.citybustickets.utils.DataParser;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -63,6 +66,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Button mNextButton;
     private LinearLayout mPointsLayout;
     private CheckBox mArrowCB;
+    public RadioButton mSrcRB, mDestRB;
+    private ImageView mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,15 +77,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
-        mNextButton=(Button)findViewById(R.id.next_button);
-        mPointsLayout=(LinearLayout) findViewById(R.id.points_top_layout);
-        mArrowCB =(CheckBox)findViewById(R.id.arrow_button);
+        mBackButton = (ImageView) findViewById(R.id.back_button);
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mSrcRB = (RadioButton) findViewById(R.id.pickup_one);
+        mDestRB = (RadioButton) findViewById(R.id.dropping_one);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        mPointsLayout = (LinearLayout) findViewById(R.id.points_top_layout);
+        mArrowCB = (CheckBox) findViewById(R.id.arrow_button);
         mArrowCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
+                if (b) {
                     mPointsLayout.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     mPointsLayout.setVisibility(View.GONE);
                 }
             }
@@ -96,7 +111,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerPoints = new ArrayList<>();
         mSrcPnt = new LatLng(getIntent().getExtras().getDouble("src_latitude"), getIntent().getExtras().getDouble("src_longitude"));
         mDestPnt = new LatLng(getIntent().getExtras().getDouble("dest_latitude"), getIntent().getExtras().getDouble("dest_longitude"));
-
+        mSrcRB.setText("" + new GetAddressFromLocation()
+                .getAreaAddressFromLatLng(MapsActivity.this,
+                        mSrcPnt));
+        mDestRB.setText("" + new GetAddressFromLocation()
+                .getAreaAddressFromLatLng(MapsActivity.this,
+                        mDestPnt));
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -156,7 +176,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         options.icon(icon);
         BitmapDescriptor icon1 = BitmapDescriptorFactory.fromResource(R.drawable.dropping_marker);
         options1.icon(icon1);
-
 
 
         // Add new marker to the Google Map Android API V2
