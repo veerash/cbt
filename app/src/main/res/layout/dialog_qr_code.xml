@@ -10,14 +10,14 @@
         android:layout_width="200sp"
         android:layout_height="200sp"
         android:layout_centerInParent="true"
-        app:srcCompat="@drawable/account_icon" />
+        android:layout_marginBottom="20sp"
+        android:src="@drawable/account_icon" />
 
     <com.android.citybustickets.customviews.buttons.LatoRegButton
         android:id="@+id/close_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rq_code"
-        android:layout_marginTop="20sp"
         android:background="@android:color/holo_green_light"
         android:padding="10sp"
         android:text="Close"

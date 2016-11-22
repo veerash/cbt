@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout searchlayout;
     private RelativeLayout mMapCpntainer, markerLoadingTextView;
     private SharedPreferencesData sharedPreferencesData;
-    private String lat, lng, mSearhLocationText;
+    private String lat, lng, mSearhLocationText, mDestinationAddress;
     private ImageView[] strips;
     private ImageView mMapPin;
     public static String TAG = "Maps Fragment";
@@ -136,14 +136,17 @@ public class MainActivity extends AppCompatActivity
                 break;
             case GETDROPPINGPOINT:
                 if (data != null && data.hasExtra("search_address") && data.getExtras().getString("search_address") != null) {
+                    mDestinationAddress="" + data.getExtras().getString("search_address");
                     droppingPointAddressTextView.setText("" + data.getExtras().getString("search_address"));
                     mNextButton.setVisibility(View.VISIBLE);
                     mDroppingPoint = new LatLng(data.getExtras().getDouble("latitude"), data.getExtras().getDouble("longitude"));
                     Intent mapActivityIntent = new Intent(MainActivity.this, MapsActivity.class);
                     mapActivityIntent.putExtra("src_latitude", mPickupPoint.latitude);
                     mapActivityIntent.putExtra("src_longitude", mPickupPoint.longitude);
+                    mapActivityIntent.putExtra("src_address", mSearhLocationText);
                     mapActivityIntent.putExtra("dest_latitude", mDroppingPoint.latitude);
                     mapActivityIntent.putExtra("dest_longitude", mDroppingPoint.longitude);
+                    mapActivityIntent.putExtra("dest_address", mDestinationAddress);
                     startActivity(mapActivityIntent);
 
                 }
@@ -228,14 +231,13 @@ public class MainActivity extends AppCompatActivity
                     notification = new Runnable() {
                         public void run() {
                             if (mGetLocationDetailsFromApi) {
-                                pickupPointAddressTextView.setText(new GetAddressFromLocation()
+                                mSearhLocationText =new GetAddressFromLocation()
                                         .getLocationAddressFromLatLng(MainActivity.this,
-                                                position.target));
+                                                position.target);
                             } else {
-                                pickupPointAddressTextView.setText("" + mSearhLocationText);
                                 mGetLocationDetailsFromApi = true;
                             }
-
+                            pickupPointAddressTextView.setText("" + mSearhLocationText);
                             boolean within_range = false;
                             sharedPreferencesData.storeValueIntoSharedPreference(getApplicationContext(),
                                     sharedPreferencesData.CURRENT_LATITUDE, "" + position.target.latitude);
@@ -319,6 +321,8 @@ public class MainActivity extends AppCompatActivity
             mapActivityIntent.putExtra("src_longitude", mPickupPoint.longitude);
             mapActivityIntent.putExtra("dest_latitude", mDroppingPoint.latitude);
             mapActivityIntent.putExtra("dest_longitude", mDroppingPoint.longitude);
+            mapActivityIntent.putExtra("src_address", mSearhLocationText);
+            mapActivityIntent.putExtra("dest_address", mDestinationAddress);
             startActivity(mapActivityIntent);
         } else if (v == myLocationIV) {
             try {

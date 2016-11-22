@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,7 +52,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
@@ -111,16 +112,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerPoints = new ArrayList<>();
         mSrcPnt = new LatLng(getIntent().getExtras().getDouble("src_latitude"), getIntent().getExtras().getDouble("src_longitude"));
         mDestPnt = new LatLng(getIntent().getExtras().getDouble("dest_latitude"), getIntent().getExtras().getDouble("dest_longitude"));
-        mSrcRB.setText("" + new GetAddressFromLocation()
-                .getAreaAddressFromLatLng(MapsActivity.this,
-                        mSrcPnt));
-        mDestRB.setText("" + new GetAddressFromLocation()
-                .getAreaAddressFromLatLng(MapsActivity.this,
-                        mDestPnt));
+        mSrcRB.setText("" + getIntent().getExtras().getString("src_address"));
+        mDestRB.setText("" + getIntent().getExtras().getString("dest_address") + "\n" + getFare());
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    public String getFare() {
+        String fare = "Fare: Rs.0/- ";
+        Location locationA = new Location("SRC");
+        locationA.setLatitude(mSrcPnt.latitude);
+        locationA.setLongitude(mSrcPnt.longitude);
+
+        Location locationB = new Location("DEST");
+
+        locationB.setLatitude(mDestPnt.latitude);
+        locationB.setLongitude(mDestPnt.longitude);
+
+        float distanc = locationA.distanceTo(locationB);
+        int distance=(int) distanc/1000;
+        if (distance <= 5) {
+            fare = "Fare: Rs.8/- ";
+        } else if (distance > 5 && distance <= 10) {
+            fare = "Fare: Rs.12/- ";
+        } else if (distance > 10 && distance <= 15) {
+            fare = "Fare: Rs.15/- ";
+        } else if (distance > 15 && distance <= 20) {
+            fare = "Fare: Rs.18/- ";
+        } else if (distance > 20) {
+            fare = "Fare: Rs.20/- ";
+        }
+        return fare;
+
     }
 
     /**

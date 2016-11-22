@@ -89,7 +89,7 @@ public String GOOGLE_PLACES_API_URL = "http://maps.googleapis.com/maps/api/geoco
 								.nextElement());
 					}
 					if (address == null) {
-						address = addresses.get(1).trim()+"Bus Stop";
+						address = addresses.get(3).trim()+" Bus Stop";
 //						address = address
 //								+ ","
 //								+ addresses.get(1).trim();

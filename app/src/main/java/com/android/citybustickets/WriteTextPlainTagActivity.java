@@ -108,6 +108,7 @@ public class WriteTextPlainTagActivity extends AppCompatActivity implements View
 
     private void fillUi() {
         mTextPlainEditText = (EditText) findViewById(R.id.et_text_plain);
+        mTextPlainEditText.setText(""+getIntent().getExtras().getString("payment_id"));
         Button saveTagBtn = (Button) findViewById(R.id.btn_save_tag);
         Button mainMenuBtn = (Button) findViewById(R.id.btn_main_menu);
         saveTagBtn.setOnClickListener(this);
@@ -121,6 +122,9 @@ public class WriteTextPlainTagActivity extends AppCompatActivity implements View
                 saveTag();
                 break;
             case R.id.btn_main_menu:
+                Intent callingHomeIntent = new Intent(WriteTextPlainTagActivity.this, MainActivity.class);
+                callingHomeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(callingHomeIntent);
                 finish();
                 break;
         }

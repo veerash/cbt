@@ -40,6 +40,7 @@
             android:hint="Name"
             android:maxLength="30"
             android:maxLines="1"
+            android:singleLine="true"
             android:paddingBottom="3sp"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
@@ -52,6 +53,7 @@
             android:background="@drawable/nvite_edit_text_bg"
             android:ellipsize="end"
             android:gravity="left"
+            android:singleLine="true"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:maxLength="30"
@@ -131,7 +133,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
-                    android:checked="true"
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:minLines="3"
