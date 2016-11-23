@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+    <com.android.citybustickets.customviews.textviews.PantonBoldTextView
+        android:id="@+id/et_text_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:hint="This is your NFC tag"
+        android:inputType="none"
+        android:layout_marginTop="10sp"
+        android:textSize="20sp"
+        android:textColor="@color/blue_text_dark"
+        android:paddingBottom="3sp" />
+    <com.android.citybustickets.customviews.edittexts.LatoSemiBoldEditText
+        android:id="@+id/et_text_plain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nvite_edit_text_bg"
+        android:editable="false"
+        android:hint="Write the Text/plain message"
+        android:inputType="none"
+        android:layout_marginTop="10sp"
+        android:textSize="16sp"
+        android:paddingBottom="3sp" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10sp"
+        android:weightSum="2">
+
+        <com.android.citybustickets.customviews.buttons.LatoRegButton
+            android:id="@+id/btn_save_tag"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:text="Save the Tag"
+            android:visibility="gone"
+            android:layout_marginRight="10sp"
+            android:textColor="@android:color/white" />
+
+        <com.android.citybustickets.customviews.buttons.LatoRegButton
+            android:id="@+id/btn_main_menu"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="10sp"
+            android:background="@android:color/black"
+            android:text="Main menu"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</LinearLayout>
